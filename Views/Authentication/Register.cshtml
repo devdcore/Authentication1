@@ -1,0 +1,132 @@
+﻿@model Authentication1.Views.Authentication.RegisterModel
+@{
+}
+
+
+<div>
+    <form method="post" asp-controller="Authentication" asp-action="testPostR">
+        <div asp-validation-summary="All">
+        </div>
+
+        <div>
+            <label asp-for="Model.Country">Pais</label>
+            <input type="text" asp-for="Model.Country" />
+            <span asp-validation-for="Model.Country"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.CID">DNI</label>
+            <input type="text" asp-for="Model.CID" />
+            <span asp-validation-for="Model.CID"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.Treatment">Tratamiento</label>
+            <input type="text" asp-for="Model.Treatment" />
+            <span asp-validation-for="Model.Treatment"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.FirstName">Nombre</label>
+            <input type="text" asp-for="Model.FirstName" />
+            <span asp-validation-for="Model.FirstName"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.LastName">Apellido</label>
+            <input type="text" asp-for="Model.LastName" />
+            <span asp-validation-for="Model.LastName"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.LastName2">Segundo apellido</label>
+            <input type="text" asp-for="Model.LastName2" />
+            <span asp-validation-for="Model.LastName2"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.BirthDate">Fecha de nacimiento</label>
+            <input type="date" asp-for="Model.BirthDate" />
+            <span asp-validation-for="Model.BirthDate"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.Nationality">Nacionalidad</label>
+            <input type="text" asp-for="Model.Nationality" />
+            <span asp-validation-for="Model.Nationality"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.Address">Direccion</label>
+            <input type="text" asp-for="Model.Address" />
+            <span asp-validation-for="Model.Address"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.Address2">Direccion 2</label>
+            <input type="text" asp-for="Model.Address2" />
+            <span asp-validation-for="Model.Address2"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.ZipCode">Zip Code</label>
+            <input type="text" asp-for="Model.ZipCode" />
+            <span asp-validation-for="Model.ZipCode"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.TaxResidence">Direccion de residencia</label>
+            <input type="text" asp-for="Model.TaxResidence" />
+            <span asp-validation-for="Model.TaxResidence"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.TaxResidence2">Direccion de residencia 2</label>
+            <input type="text" asp-for="Model.TaxResidence2" />
+            <span asp-validation-for="Model.TaxResidence2"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.NumberSecurity">Numero de seguridad</label>
+            <input type="text" asp-for="Model.NumberSecurity" />
+            <span asp-validation-for="Model.NumberSecurity"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.ReceiveOffers">Recibe ofertas</label>
+            <input type="checkbox" asp-for="Model.ReceiveOffers" />
+            <span asp-validation-for="Model.ReceiveOffers"></span>
+        </div>
+
+        <div>
+            <label asp-for="Model.TermsConditions">Terminos y condiciones</label>
+            <input type="checkbox" asp-for="Model.TermsConditions" />
+            <span asp-validation-for="Model.TermsConditions"></span>
+        </div>
+        <div>
+            <label asp-for="Model.UserName">Nombre de usuario</label>
+            <input type="text" asp-for="Model.UserName" />
+            <span asp-validation-for="Model.UserName"></span>
+        </div>
+        <div>
+            <label asp-for="Model.Email">Email Adress</label>
+            <input type="text" asp-for="Model.Email" />
+            <span asp-validation-for="Model.Email"></span>
+        </div>
+        <div>
+            <label asp-for="Model.Password">Password</label>
+            <input type="password" asp-for="Model.Password" />
+            <span asp-validation-for="Model.Password"></span>
+        </div><div>
+            <label asp-for="Model.ConfirmPassword">EConfirm Password</label>
+            <input type="password" asp-for="Model.ConfirmPassword" />
+            <span asp-validation-for="Model.ConfirmPassword"></span>
+        </div>
+
+        <div>
+            <button type="submit"> Register</button>
+        </div>
+
+    </form>
+</div>
+

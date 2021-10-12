@@ -1,0 +1,82 @@
+﻿@model Authentication1.Views.Authentication.LoginModel
+@{
+}
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-12 col-md-12 col-lg-4">
+            <h1 class="mb-3">Login</h1>
+            <form method="post" asp-controller="Authentication" asp-action="LoginPost">
+                <div asp-validation-summary="All">
+                </div>
+                <div class="mb-3">
+                    <label class="col-form-label" asp-for="Model.User">Usuario</label>
+                    <input id="userName" type="text" asp-for="Model.User" class="form-control" />
+                    <span asp-validation-for="Model.User" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="col-form-label" asp-for="Model.Password">Password</label>
+                    <input id="password" type="password" asp-for="Model.Password" class="form-control" />
+                    <span asp-validation-for="Model.Password" class="text-danger"></span>
+                </div>
+                <div class="mb-3 form-check">
+                    <input id="rememberme" type="checkbox" asp-for="Model.RememberMe" class="form-check-input" />
+                    <label class="form-check-label" asp-for="Model.RememberMe">Remember Me?</label>
+                </div>
+                <div class="mb-3">
+                    <button id="button" type="submit" class="btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        orderByChanged();
+
+        function orderByChanged() {
+
+            $('#button').on("click", async function () {
+                const user = $('#userName').val();
+                const password = $('#password').val();
+                const rememberMe = $('#rememberme').val();
+                let dataLogin_array = [];
+                let dataLogin = "";
+
+                dataLogin_array.push({
+                    User: user,
+                    Password: password,
+                    RememberMe: rememberMe
+                });
+
+                var data = JSON.stringify({ 'data': dataLogin_array });
+
+              //  console.log("data Login " + data);
+                //const response = await $.post('Register_', dataLogin).then();
+                //console.log(response);
+
+
+                var datas = {"data": dataLogin_array};
+
+                console.log("datas " + datas);
+
+
+                $.ajax({
+                    type: "POST",
+                    url: 'LoginPost',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: true,
+                    data: JSON.stringify(dataLogin_array),
+                     success: function (result) {
+                            console.log(result);
+                            }
+                      });
+            });
+
+        }
+    </script>
+}

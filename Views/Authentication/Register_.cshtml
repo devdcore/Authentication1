@@ -1,0 +1,130 @@
+﻿@model Authentication1.Models.Register
+
+
+<div>
+    <form d="commentForm" method="post">
+        <div asp-validation-summary="All">
+        </div>
+
+        <div>
+            <label asp-for="@Model.Email">Email Adress</label>
+            <input id="email_register" type="text" asp-for="@Model.Email" />
+            <span asp-validation-for="@Model.Email"></span>
+        </div>
+        <div>
+            <label asp-for="@Model.Password">Password</label>
+            <input id="password_register" type="password" asp-for="@Model.Password" />
+            <span asp-validation-for="@Model.Password"></span>
+        </div><div>
+            <label asp-for="@Model.ConfirmPassword">Confirm Password</label>
+            <input id="confirmppassword_register" type="password" asp-for="@Model.ConfirmPassword" />
+            <span asp-validation-for="@Model.ConfirmPassword"></span>
+        </div>
+
+        <div>
+            <div id="button"> Register</div>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script type="text/javascript">
+
+        orderByChanged();
+
+        function orderByChanged() {
+
+    //   $('#commentForm').validate({ // initialize plugin
+    //    // your rules & options,
+    //    errorClass: "my-error-class",
+    //    rules: {
+    //        UserLoginPopUp: "required",
+    //        PasswordLoginPopUp: "required"
+    //    },
+    //    messages: {
+    //        UserLoginPopUp: "",
+    //        PasswordLoginPopUp: ""
+    //    },
+
+    //    errorPlacement: function (error, element) {
+    //        return true;
+    //    },
+    //    // ejecuta el boton si pasa los filtros de validacion
+    //       submitHandler: function (form) {
+    //            const email = $('email_register').text();
+    //            const password = $('password_register').text();
+    //            let dataLogin_array = [];
+    //            let dataLogin = "";
+
+    //            dataLogin_array.push({
+    //                Email: email,
+    //                Password: password
+    //            });
+
+    //            dataLogin = JSON.stringify({ 'dataLogin': dataLogin_array });
+
+    //            console.log("data Login " + dataLogin);
+
+    //            $.ajax({
+    //                url: 'OnPostAsync',
+    //                type: "post",
+    //                contentType: 'application/x-www-form-urlencoded',
+    //                data: dataLogin,
+    //                 success: function (result) {
+    //                        console.log(result);
+    //                        }
+    //                  });
+
+
+
+    //        return false;  // blocks regular submit since you have ajax
+    //    }
+    //});
+
+            $('#button').on("click", async function () {
+                const email = $('#email_register').val();
+                const password = $('#password_register').val();
+                let dataLogin_array = [];
+                let dataLogin = "";
+
+                dataLogin_array.push({
+                    Email: email,
+                    Password: password,
+                    ConfirmPassword: password
+                });
+
+                var data = JSON.stringify({ 'data': dataLogin_array });
+
+              //  console.log("data Login " + data);
+
+
+                //const response = await $.post('Register_', dataLogin).then();
+                //console.log(response);
+
+
+                var datas = {"data": dataLogin_array};
+
+                console.log("datas " + datas);
+
+
+                $.ajax({
+                    type: "POST",
+                    url: 'testPost',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: true,
+                    data: JSON.stringify(dataLogin_array),
+                     success: function (result) {
+                            console.log(result);
+                            }
+                      });
+            });
+
+       //     $('form').submit();
+        }
+    </script>
+}
